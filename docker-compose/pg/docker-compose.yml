@@ -17,7 +17,7 @@ services:
       retries: 10
   nocodb:
     depends_on:
-      root_db:
+      root_db: 
         condition: service_healthy
     image: nocodb/nocodb:latest
     ports:
@@ -26,7 +26,7 @@ services:
     volumes:
       - nc_data:/usr/app/data
     environment:
-      NC_DB: "pg://root_db:5432?u=postgres&p=password&d=root_db"
+      NC_DB: "pg://localhost:5432?u=postgres&p=kiyono&d=postgres"
 volumes:
   db_data: {}
   nc_data: {}
